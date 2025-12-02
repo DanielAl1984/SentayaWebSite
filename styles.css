@@ -1516,7 +1516,7 @@ section {
     height: 50px;
     background: var(--dark-gray);
     border-radius: 4px;
-    overflow: visible;
+    overflow: hidden;
     border: 1px solid var(--medium-gray);
     display: flex;
     align-items: center;
@@ -1552,8 +1552,9 @@ section {
     color: var(--white);
     font-weight: 600;
     margin-left: auto;
-    min-width: 60px;
+    padding-left: 0.5rem;
     text-align: right;
+    white-space: nowrap;
 }
 
 .chart-bar::before {
@@ -1563,6 +1564,25 @@ section {
     color: var(--white);
     font-weight: 500;
     z-index: 2;
+}
+
+.latency-note {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: rgba(159, 201, 10, 0.1);
+    border: 1px solid var(--neon-green);
+    border-radius: 4px;
+    text-align: center;
+}
+
+.latency-note p {
+    margin: 0;
+    color: var(--white);
+    font-size: 0.9rem;
+}
+
+.latency-note strong {
+    color: var(--neon-green);
 }
 
 /* Applications Section */
