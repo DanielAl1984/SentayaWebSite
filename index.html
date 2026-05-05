@@ -3,919 +3,759 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sentaya AI - AI-Powered Video & Data Compression</title>
+    <title>Sentaya AI — Mission-Critical Video &amp; Data Compression</title>
+    <meta name="description" content="Sentaya AI delivers field-validated AI-powered video and sensor data compression for defense, aerospace, and mission-critical systems. 4× compression vs H.265, sub-30ms latency.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <img src="SentayaLogoHortNeg2.png" alt="Sentaya AI" class="logo-image">
+
+<!-- Skip navigation — P1 Accessibility -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- ══════════════════════════════════════════════════════════
+     NAVIGATION
+══════════════════════════════════════════════════════════ -->
+<nav class="navbar" id="navbar" role="navigation" aria-label="Primary navigation">
+    <div class="nav-container">
+        <a href="#hero" class="nav-logo" aria-label="Sentaya AI — home">
+            <img src="SentayaLogoHortNeg2.png" alt="Sentaya AI" class="logo-img" width="200" height="38">
+        </a>
+        <ul class="nav-menu" id="navMenu" role="list">
+            <li role="listitem"><a href="#solution"    class="nav-link">Solution</a></li>
+            <li role="listitem"><a href="#use-cases"   class="nav-link">Applications</a></li>
+            <li role="listitem"><a href="#validation"  class="nav-link">Validation</a></li>
+            <li role="listitem"><a href="#team"        class="nav-link">Team</a></li>
+            <li role="listitem"><a href="#contact"     class="nav-link">Contact</a></li>
+        </ul>
+        <a href="mailto:daniel@sentaya.ai?subject=Technical%20Evaluation%20Request"
+           class="btn-nav"
+           aria-label="Request Technical Evaluation — email daniel@sentaya.ai">
+            Request Evaluation <i class="fas fa-arrow-right" aria-hidden="true"></i>
+        </a>
+        <button class="nav-toggle" id="navToggle"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="navMenu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════════════════
+     MAIN CONTENT
+══════════════════════════════════════════════════════════ -->
+<main id="main-content" tabindex="-1">
+
+<!-- ── HERO ──────────────────────────────────────────────── -->
+<section id="hero" class="hero" aria-label="Hero — Sentaya AI mission-critical compression">
+    <canvas id="heroCanvas" class="hero-canvas"
+            role="img"
+            aria-label="Animated network topology illustrating AI compression data flow"></canvas>
+    <div class="hero-scan-line" aria-hidden="true"></div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <div class="container hero-layout">
+        <div class="hero-content">
+            <div class="hero-eyebrow" aria-live="polite" aria-atomic="true">
+                <span class="eyebrow-dot" aria-hidden="true"></span>
+                <span id="eyebrowText"></span>
+                <span class="eyebrow-cursor" aria-hidden="true">|</span>
             </div>
-            <ul class="nav-menu">
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#challenge">Challenge</a></li>
-                <li><a href="#solution">Solution</a></li>
-                <li><a href="#value-prop">Value</a></li>
-                <li><a href="#applications">Markets</a></li>
-                <li><a href="#roadmap">Roadmap</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="nav-cta">
-                <a href="#contact" class="btn-primary">Book a Demo</a>
-            </div>
-            <div class="mobile-menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
+
+            <h1 class="hero-headline">
+                THE AI CODEC<br>
+                BUILT FOR<br>
+                <em class="accent">MISSION&#8209;CRITICAL</em><br>
+                <em class="accent">OPERATIONS.</em>
+            </h1>
+
+            <p class="hero-sub">
+                Real-time video and sensor data compression engineered for drones,
+                satellites, and tactical systems — where standard codecs collapse.
+            </p>
+
+            <div class="hero-actions">
+                <a href="mailto:daniel@sentaya.ai?subject=Technical%20Evaluation%20Request"
+                   class="btn-primary">
+                    Request Technical Evaluation
+                    <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                </a>
+                <a href="#solution" class="btn-ghost">
+                    See How It Works
+                    <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                </a>
             </div>
         </div>
-    </nav>
+    </div>
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero">
-        <div class="hero-background">
-            <div class="video-grid"></div>
-            <div class="particles"></div>
-            <div class="diagonal-overlay"></div>
-        </div>
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <span class="badge-icon"><i class="fas fa-bolt"></i></span>
-                    <span>Breakthrough AI Technology</span>
+    <div class="hero-scroll-hint" aria-hidden="true">
+        <div class="scroll-bar"></div>
+        <span>Scroll</span>
+    </div>
+</section>
+
+<!-- ── TRUST BAR ──────────────────────────────────────────── -->
+<div class="trust-bar" role="complementary" aria-label="Validation partners">
+    <div class="container">
+        <div class="trust-inner">
+            <span class="trust-label" id="trust-label">Validated by</span>
+            <div class="trust-logos" role="list" aria-labelledby="trust-label">
+                <div class="trust-item" role="listitem">
+                    <span class="trust-text-logo" aria-label="IAI — Israel Aerospace Industries">IAI</span>
                 </div>
-                <h1 class="hero-title">
-                    <span class="title-line">AI-Powered</span>
-                    <span class="title-line highlight">Encoding Efficiency</span>
-                </h1>
-                <p class="hero-subtitle">
-                    Breakthrough AI-driven Video & Data Compression for Defense, Aerospace, and Consumer Markets.
-                </p>
-                <div class="hero-features">
-                    <div class="feature-badge">
-                        <i class="fas fa-compress"></i>
-                        <span><strong>4×</strong> Video Compression vs H.265</span>
-                    </div>
-                    <div class="feature-badge">
-                        <i class="fas fa-tachometer-alt"></i>
-                        <span><strong>3×</strong> Lower Latency</span>
-                    </div>
-                    <div class="feature-badge">
-                        <i class="fas fa-unlink"></i>
-                        <span>No Inter-frame Dependency</span>
-                    </div>
-                    <div class="feature-badge">
-                        <i class="fas fa-video"></i>
-                        <span>Up to <strong>125 FPS</strong></span>
-                    </div>
-                    <div class="feature-badge">
-                        <i class="fas fa-database"></i>
-                        <span><strong>6×–20×</strong> Sensor Data Compression</span>
-                    </div>
-                    <div class="feature-badge">
-                        <i class="fas fa-mobile-alt"></i>
-                        <span>Only Cross-Platform AI Codec</span>
-                    </div>
+                <div class="trust-item" role="listitem">
+                    <img src="AstraLogo.png" alt="ASTRA" class="trust-logo"
+                         width="100" height="26"
+                         onerror="this.closest('.trust-item').setAttribute('aria-hidden','true'); this.style.display='none'">
                 </div>
-                <div class="hero-cta">
-                    <a href="#contact" class="btn-primary btn-large">
-                        <span>Book a Demo</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a href="#contact" class="btn-secondary btn-large">
-                        <span>Download One-Pager</span>
-                        <i class="fas fa-download"></i>
-                    </a>
+                <div class="trust-item" role="listitem">
+                    <img src="StarburstLogo.png" alt="Starburst Aerospace" class="trust-logo"
+                         width="100" height="26"
+                         onerror="this.closest('.trust-item').setAttribute('aria-hidden','true'); this.style.display='none'">
+                </div>
+                <div class="trust-item trust-badge" role="listitem">
+                    <i class="fas fa-certificate" aria-hidden="true"></i>
+                    <span>FDA-Approved Application</span>
                 </div>
             </div>
         </div>
-        <div class="scroll-indicator">
-            <div class="scroll-line"></div>
-            <span>Scroll</span>
+    </div>
+</div>
+
+<!-- ── METRICS BLEED ──────────────────────────────────────── -->
+<section class="metrics-bleed" aria-label="Key performance metrics">
+    <div class="metrics-inner">
+        <div class="metric-col" data-animate>
+            <div class="metric-num" aria-hidden="true">
+                <span class="m-count" data-target="4">0</span><span class="m-unit">×</span>
+            </div>
+            <div class="metric-label">COMPRESSION<br>vs H.265</div>
+            <div class="metric-sub">AI Video Codec</div>
+            <span class="sr-only">4× compression versus H.265 — AI Video Codec</span>
         </div>
-    </section>
-
-    <!-- The Challenge Section -->
-    <section id="challenge" class="challenge">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">The Problem</span>
-                <h2 class="section-title">Why Current Codecs Fail</h2>
+        <div class="metric-col" data-animate>
+            <div class="metric-num" aria-hidden="true">
+                <span class="m-pre">&lt;</span><span class="m-count" data-target="30">0</span><span class="m-unit">ms</span>
             </div>
-
-            <!-- Block A: Sensor Data is Exploding -->
-            <div class="challenge-block block-a">
-                <div class="block-content">
-                    <div class="block-text">
-                        <h3 class="block-title">Sensor Data is Growing Faster Than Codec Technology</h3>
-                        <p>Modern defence-grade and 4K/8K sensors generate enormous raw data rates that classical codecs can't handle efficiently. This overwhelms traditional codecs and networks, causing latency, quality drops, and huge storage costs.</p>
-                        <div class="sensor-examples">
-                            <div class="sensor-example">
-                                <span class="sensor-name">SCD Crane MWIR</span>
-                                <span class="sensor-specs">2560×2048 @ 140 Hz → <strong>1.10 GB/s</strong></span>
-                            </div>
-                            <div class="sensor-example">
-                                <span class="sensor-name">SCD Mini-Blackbird MWIR</span>
-                                <span class="sensor-specs">1280×1024 @ 100 Hz → <strong>1.57 Gb/s</strong></span>
-                            </div>
-                            <div class="sensor-example">
-                                <span class="sensor-name">SCD Cardinal SWIR</span>
-                                <span class="sensor-specs">1280×1024 @ 160 Hz → <strong>2.73 Gb/s</strong></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="block-graphics">
-                        <div class="chart-container">
-                            <h4>Raw Sensor Data Growth vs Codec Capability</h4>
-                            <canvas id="sensorGrowthChart"></canvas>
-                            <div class="chart-legend">
-                                <span class="legend-item sensor"><span class="legend-color"></span> Sensor Data</span>
-                                <span class="legend-item codec"><span class="legend-color"></span> Codec Efficiency</span>
-                            </div>
-                        </div>
-                        <div class="pictogram-strip">
-                            <div class="pictogram-item">
-                                <i class="fas fa-satellite"></i>
-                                <div class="data-stream"></div>
-                            </div>
-                            <div class="pictogram-item">
-                                <i class="fas fa-plane"></i>
-                                <div class="data-stream"></div>
-                            </div>
-                            <div class="pictogram-item">
-                                <i class="fas fa-rocket"></i>
-                                <div class="data-stream"></div>
-                            </div>
-                            <div class="pictogram-item">
-                                <i class="fas fa-video"></i>
-                                <div class="data-stream"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Block B: Inter-Frame Prediction -->
-            <div class="challenge-block block-b">
-                <div class="block-content">
-                    <div class="block-text">
-                        <h3 class="block-title">Old Codecs Depend on Fragile Inter-Frame Prediction</h3>
-                        <p>H.264/H.265/H.266/AV1 depend on predicting each frame from previous ones. This creates three critical problems:</p>
-                        <ul class="problem-list">
-                            <li><strong>High latency</strong> – codec must look at multiple frames.</li>
-                            <li><strong>Unstable in real scenes</strong> – vibration, rapid motion, occlusions break prediction.</li>
-                            <li><strong>Not suited for defence</strong> – sudden maneuvers, fast pan, explosions, and poor visibility cause artifacts.</li>
-                        </ul>
-                        <p class="highlight-text">Sentaya's approach is frame-independent, avoiding this long dependency chain.</p>
-                    </div>
-                    <div class="block-graphics">
-                        <div class="comparison-diagram">
-                            <div class="diagram-item traditional">
-                                <h4>Traditional Codec – Inter-Frame Dependency</h4>
-                                <div class="frame-chain">
-                                    <div class="frame">F1</div>
-                                    <div class="arrow">→</div>
-                                    <div class="frame">F2</div>
-                                    <div class="arrow">→</div>
-                                    <div class="frame">F3</div>
-                                    <div class="arrow">→</div>
-                                    <div class="frame">F4</div>
-                                </div>
-                                <p class="diagram-caption">When one frame fails, the whole chain suffers.</p>
-                            </div>
-                            <div class="diagram-item sentaya">
-                                <h4>Sentaya – Frame-Independent AI Codec</h4>
-                                <div class="frame-independent">
-                                    <div class="frame">F1</div>
-                                    <div class="frame">F2</div>
-                                    <div class="frame">F3</div>
-                                    <div class="frame">F4</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Block C: Latency -->
-            <div class="challenge-block block-c">
-                <div class="block-content">
-                    <div class="block-text">
-                        <h3 class="block-title">Too Slow for Real-Time Missions</h3>
-                        <p>Classical codecs add tens of milliseconds of delay – acceptable for streaming movies, but not for:</p>
-                        <div class="mission-types">
-                            <span class="mission-tag">UAV video links</span>
-                            <span class="mission-tag">Missile guidance</span>
-                            <span class="mission-tag">Satellite downlinks</span>
-                            <span class="mission-tag">Live ISR feeds</span>
-                            <span class="mission-tag">Tactical operations</span>
-                        </div>
-                        <p class="highlight-text">In modern missions, 60–100 ms of latency can mean missed targets, delayed decisions, and reduced survivability.</p>
-                    </div>
-                    <div class="block-graphics">
-                        <div class="latency-chart-container">
-                            <h4>End-to-End Latency Comparison</h4>
-                            <div class="latency-chart">
-                                <div class="latency-bar" data-value="100" data-label="Traditional Codec">
-                                    <div class="bar-fill"></div>
-                                    <span class="bar-value">100ms</span>
-                                </div>
-                                <div class="latency-bar" data-value="90" data-label="Traditional Codec">
-                                    <div class="bar-fill"></div>
-                                    <span class="bar-value">90ms</span>
-                                </div>
-                                <div class="latency-bar" data-value="85" data-label="Traditional Codec">
-                                    <div class="bar-fill"></div>
-                                    <span class="bar-value">85ms</span>
-                                </div>
-                                <div class="latency-bar sentaya" data-value="25" data-label="Sentaya">
-                                    <div class="bar-fill"></div>
-                                    <span class="bar-value">25ms</span>
-                                </div>
-                            </div>
-                            <div class="threshold-line">
-                                <span class="threshold-label">Mission-critical threshold</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Block D: Low Bandwidth Breakdown -->
-            <div class="challenge-block block-d">
-                <div class="block-content">
-                    <div class="block-text">
-                        <h3 class="block-title">Classical Codecs Collapse Under Real-World Stress</h3>
-                        <p>At very low bitrates, they produce blocky, smeared, artifact-heavy video. Under high motion or vibration, their motion prediction breaks. In darkness, fog, or IR noise, their models fail, losing critical details.</p>
-                        <p class="highlight-text">They were designed for clean, controlled consumer video – not for noisy IR sensors on a vibrating drone at 125 fps.</p>
-                    </div>
-                    <div class="block-graphics">
-                        <div class="before-after-container">
-                            <h4>Low Bitrate Performance Comparison</h4>
-                            <div class="before-after-slider">
-                                <div class="before-section">
-                                    <div class="image-placeholder traditional">
-                                        <div class="artifact-overlay">
-                                            <div class="artifact artifact-1"></div>
-                                            <div class="artifact artifact-2"></div>
-                                            <div class="artifact artifact-3"></div>
-                                        </div>
-                                        <span class="label">Traditional Codec at Low Bitrate</span>
-                                    </div>
-                                </div>
-                                <div class="slider-control">
-                                    <div class="slider-handle">
-                                        <i class="fas fa-arrows-alt-h"></i>
-                                    </div>
-                                </div>
-                                <div class="after-section">
-                                    <div class="image-placeholder sentaya">
-                                        <div class="detail-overlay">
-                                            <div class="detail-line"></div>
-                                            <div class="detail-line"></div>
-                                            <div class="detail-line"></div>
-                                        </div>
-                                        <span class="label">Sentaya AI Codec at Same Bitrate</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Block E: Multi-Sensor Systems -->
-            <div class="challenge-block block-e">
-                <div class="block-content">
-                    <div class="block-text">
-                        <h3 class="block-title">Old Codecs Were Built for TV, Not for AI-Driven Systems</h3>
-                        <p>Traditional codecs were optimized for TV broadcasting, Blu-ray and OTT streaming, static or predictable content. But modern systems include:</p>
-                        <div class="system-features">
-                            <div class="feature-column old">
-                                <h4>Old World</h4>
-                                <ul>
-                                    <li>TV broadcasting</li>
-                                    <li>Blu-ray streaming</li>
-                                    <li>Static content</li>
-                                </ul>
-                            </div>
-                            <div class="feature-column new">
-                                <h4>New World</h4>
-                                <ul>
-                                    <li>4K/8K visible cameras</li>
-                                    <li>MWIR/SWIR thermal sensors</li>
-                                    <li>Multi-camera fusion</li>
-                                    <li>Real-time AI analytics</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <p>They must handle multiple sensor streams + AI inference + compression simultaneously – something legacy standards were never designed for.</p>
-                    </div>
-                    <div class="block-graphics">
-                        <div class="architecture-diagram">
-                            <div class="arch-column old-world">
-                                <div class="arch-item">
-                                    <i class="fas fa-tv"></i>
-                                    <span>TV Screen</span>
-                                </div>
-                                <div class="arch-arrow">↓</div>
-                                <div class="arch-pipeline">
-                                    <span>Camera</span> → <span>Traditional Codec</span> → <span>TV</span>
-                                </div>
-                            </div>
-                            <div class="arch-column new-world">
-                                <div class="arch-sensors">
-                                    <div class="sensor-icon"><i class="fas fa-camera"></i> EO</div>
-                                    <div class="sensor-icon"><i class="fas fa-fire"></i> IR</div>
-                                    <div class="sensor-icon"><i class="fas fa-satellite-dish"></i> Radar</div>
-                                </div>
-                                <div class="arch-arrow">↓</div>
-                                <div class="arch-pipeline modern">
-                                    <span>Sensors</span> → <span class="sentaya-highlight">AI Analytics</span> → <span class="sentaya-highlight">Sentaya Codec</span> → <span>RF Link / Storage</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Block F: Energy Consumption -->
-            <div class="challenge-block block-f">
-                <div class="block-content">
-                    <div class="block-text">
-                        <h3 class="block-title">Too Power-Hungry for Edge and Defence Platforms</h3>
-                        <p>H.265/AV1/VVC require heavy compute and energy, which is problematic for drones/UAVs, satellites, missiles, remote ISR outposts, and battery-powered edge devices.</p>
-                        <p class="highlight-text">Sentaya is designed for low-power, high-efficiency deployment.</p>
-                    </div>
-                    <div class="block-graphics">
-                        <div class="energy-comparison">
-                            <h4>Energy Consumption Comparison</h4>
-                            <div class="battery-row">
-                                <div class="battery-item">
-                                    <div class="battery-label">Traditional Codec</div>
-                                    <div class="battery">
-                                        <div class="battery-level low"></div>
-                                    </div>
-                                </div>
-                                <div class="battery-item">
-                                    <div class="battery-label">Traditional Codec</div>
-                                    <div class="battery">
-                                        <div class="battery-level low"></div>
-                                    </div>
-                                </div>
-                                <div class="battery-item sentaya">
-                                    <div class="battery-label">Sentaya</div>
-                                    <div class="battery">
-                                        <div class="battery-level high"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="energy-caption">More compression, less power.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Closing Statement -->
-            <div class="challenge-closing">
-                <p class="closing-text">Modern sensors are evolving exponentially. Classical codecs are not. This gap is now the biggest bottleneck in defence, aerospace, and 8K video systems.</p>
-            </div>
+            <div class="metric-label">END-TO-END<br>LATENCY</div>
+            <div class="metric-sub">Mission-grade threshold</div>
+            <span class="sr-only">Less than 30 milliseconds end-to-end latency</span>
         </div>
-        <div class="diagonal-separator"></div>
-    </section>
-
-    <!-- Our Solution Section -->
-    <section id="solution" class="solution">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">The Solution</span>
-                <h2 class="section-title">AI-Driven Video and Data Compression</h2>
+        <div class="metric-col" data-animate>
+            <div class="metric-num" aria-hidden="true">
+                <span class="m-count" data-target="125">0</span><span class="m-unit">FPS</span>
             </div>
-            <div class="solution-grid">
-                <div class="solution-card">
-                    <div class="card-icon">
-                        <i class="fas fa-video"></i>
+            <div class="metric-label">VIDEO<br>THROUGHPUT</div>
+            <div class="metric-sub">Up to 125 frames per second</div>
+            <span class="sr-only">Up to 125 frames per second video throughput</span>
+        </div>
+        <div class="metric-col" data-animate>
+            <div class="metric-num" aria-hidden="true">
+                <span class="m-count" data-target="20">0</span><span class="m-unit">×</span>
+            </div>
+            <div class="metric-label">SENSOR DATA<br>COMPRESSION</div>
+            <div class="metric-sub">AI Data Codec — up to 20×</div>
+            <span class="sr-only">Up to 20× sensor data compression — AI Data Codec</span>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     01 — PROBLEM
+══════════════════════════════════════════════════════════ -->
+<section id="problem" class="section problem">
+    <div class="container">
+        <div class="section-hdr left">
+            <span class="ghost-num" aria-hidden="true">01</span>
+            <span class="section-tag">The Problem</span>
+            <h2>Classical Codecs<br>Collapse Under<br>Real Conditions</h2>
+            <p class="section-intro">
+                H.264, H.265, and AV1 were engineered for Netflix and Blu-ray.
+                Modern defense and aerospace systems demand something fundamentally different.
+            </p>
+        </div>
+
+        <div class="prob-stack">
+
+            <div class="prob-item" data-animate>
+                <div class="prob-left">
+                    <div class="prob-n" aria-hidden="true">01</div>
+                    <div class="prob-text">
+                        <h3>Sensor Data Is Outpacing<br>Codec Capability</h3>
+                        <p>Modern defense-grade sensors generate raw data rates that classical codecs cannot process efficiently. A single MWIR sensor produces over 1&nbsp;GB/s — overwhelming legacy pipelines and network links.</p>
                     </div>
+                </div>
+                <div class="prob-right">
+                    <div class="sensor-table" role="table" aria-label="Defense sensor data rates">
+                        <div class="sensor-row" role="row">
+                            <span class="sensor-name" role="cell">SCD Crane MWIR</span>
+                            <span class="sensor-rate" role="cell">1.10 GB/s</span>
+                        </div>
+                        <div class="sensor-row" role="row">
+                            <span class="sensor-name" role="cell">SCD Mini-Blackbird MWIR</span>
+                            <span class="sensor-rate" role="cell">1.57 Gb/s</span>
+                        </div>
+                        <div class="sensor-row" role="row">
+                            <span class="sensor-name" role="cell">SCD Cardinal SWIR</span>
+                            <span class="sensor-rate" role="cell">2.73 Gb/s</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="prob-item" data-animate>
+                <div class="prob-left">
+                    <div class="prob-n" aria-hidden="true">02</div>
+                    <div class="prob-text">
+                        <h3>Inter-Frame Dependency<br>Fails Under Stress</h3>
+                        <p>H.264/H.265 predict each frame from prior frames. In vibration, rapid motion, darkness, and IR noise — one corrupted frame cascades through the entire sequence. Fatal in tactical environments.</p>
+                    </div>
+                </div>
+                <div class="prob-right">
+                    <div class="chain-visual" role="img" aria-label="Frame dependency comparison: Traditional codec loses frames 3 and 4 after corruption, Sentaya maintains all frames independently">
+                        <div class="chain-row">
+                            <span class="chain-lbl">Traditional</span>
+                            <div class="chain-frames" aria-hidden="true">
+                                <div class="cf ok">F1</div>
+                                <span class="cf-arr">→</span>
+                                <div class="cf ok">F2</div>
+                                <span class="cf-arr">→</span>
+                                <div class="cf bad">F3</div>
+                                <span class="cf-arr">→</span>
+                                <div class="cf bad">F4</div>
+                            </div>
+                        </div>
+                        <div class="chain-row">
+                            <span class="chain-lbl accent">Sentaya</span>
+                            <div class="chain-frames" aria-hidden="true">
+                                <div class="cf good">F1</div>
+                                <div class="cf good">F2</div>
+                                <div class="cf good">F3</div>
+                                <div class="cf good">F4</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="prob-item" data-animate>
+                <div class="prob-left">
+                    <div class="prob-n" aria-hidden="true">03</div>
+                    <div class="prob-text">
+                        <h3>Legacy Latency Is<br>Mission-Lethal</h3>
+                        <p>Classical codecs introduce 85–120ms of end-to-end delay. Acceptable for streaming movies. Unacceptable for UAV video links, missile guidance, satellite downlinks, and live ISR feeds.</p>
+                    </div>
+                </div>
+                <div class="prob-right">
+                    <div class="lat-bars" role="img" aria-label="Latency comparison: H.264 at 120ms, H.265 at 100ms, Sentaya at 25ms (mission-critical threshold is 50ms)">
+                        <div class="lat-row" aria-hidden="true">
+                            <span class="lat-name">H.264</span>
+                            <div class="lat-track"><div class="lat-fill danger" style="--w:100%"></div></div>
+                            <span class="lat-val">120ms</span>
+                        </div>
+                        <div class="lat-row" aria-hidden="true">
+                            <span class="lat-name">H.265</span>
+                            <div class="lat-track"><div class="lat-fill danger" style="--w:83%"></div></div>
+                            <span class="lat-val">100ms</span>
+                        </div>
+                        <div class="lat-row" aria-hidden="true">
+                            <span class="lat-name accent">Sentaya</span>
+                            <div class="lat-track"><div class="lat-fill good" style="--w:21%"></div></div>
+                            <span class="lat-val accent">25ms</span>
+                        </div>
+                        <div class="lat-threshold" aria-hidden="true">Mission-critical threshold: 50ms</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     02 — SOLUTION
+══════════════════════════════════════════════════════════ -->
+<section id="solution" class="section solution">
+    <div class="container">
+        <div class="section-hdr left">
+            <span class="ghost-num" aria-hidden="true">02</span>
+            <span class="section-tag">The Solution</span>
+            <h2>AI-Native<br>Compression<br>Architecture</h2>
+            <p class="section-intro">Two purpose-built codecs engineered for the edge of the battlefield and beyond.</p>
+        </div>
+
+        <div class="solution-cards">
+            <div class="sol-card" data-animate>
+                <div class="sol-accent-bar" aria-hidden="true"></div>
+                <div class="sol-corner-tl" aria-hidden="true"></div>
+                <div class="sol-header">
+                    <div class="sol-icon" aria-hidden="true"><i class="fas fa-video"></i></div>
                     <h3>AI Video Codec</h3>
-                    <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> <strong>4× compression</strong> vs H.265</li>
-                        <li><i class="fas fa-check"></i> Ultra-low latency</li>
-                        <li><i class="fas fa-check"></i> No inter-frame dependency</li>
-                        <li><i class="fas fa-check"></i> Cross-platform implementation</li>
-                        <li><i class="fas fa-check"></i> Low energy consumption</li>
-                    </ul>
                 </div>
-                <div class="solution-card">
-                    <div class="card-icon">
-                        <i class="fas fa-database"></i>
+                <ul class="sol-features" aria-label="AI Video Codec features">
+                    <li><span class="feat accent">4×</span> compression vs H.265</li>
+                    <li><span class="feat accent">&lt;30ms</span> end-to-end latency</li>
+                    <li><span class="feat">Zero</span> inter-frame dependency</li>
+                    <li><span class="feat accent">125 FPS</span> throughput</li>
+                    <li><span class="feat">Cross-platform</span> FPGA / GPU / CPU</li>
+                    <li><span class="feat">Low-power</span> edge deployment</li>
+                </ul>
+                <div class="sol-targets">
+                    <span class="tgt-label">Designed for</span>
+                    <div class="tgt-tags" role="list" aria-label="Target applications">
+                        <span class="tag" role="listitem">UAV / Drones</span>
+                        <span class="tag" role="listitem">Satellites</span>
+                        <span class="tag" role="listitem">ISR Systems</span>
+                        <span class="tag" role="listitem">8K Streaming</span>
                     </div>
+                </div>
+            </div>
+
+            <div class="sol-card" data-animate>
+                <div class="sol-accent-bar" aria-hidden="true"></div>
+                <div class="sol-corner-tl" aria-hidden="true"></div>
+                <div class="sol-header">
+                    <div class="sol-icon" aria-hidden="true"><i class="fas fa-database"></i></div>
                     <h3>AI Data Codec</h3>
-                    <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> <strong>6×–20× compression</strong> for sensor data</li>
-                        <li><i class="fas fa-check"></i> Lossy + lossless modes</li>
-                        <li><i class="fas fa-check"></i> Ultra-low latency</li>
-                        <li><i class="fas fa-check"></i> Designed for medical, aerospace, IoT, defence</li>
-                    </ul>
                 </div>
-            </div>
-            <div class="solution-icons">
-                <div class="icon-item">
-                    <div class="icon-circle">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <span>Efficiency</span>
-                </div>
-                <div class="icon-item">
-                    <div class="icon-circle">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <span>Flexibility</span>
-                </div>
-                <div class="icon-item">
-                    <div class="icon-circle">
-                        <i class="fas fa-award"></i>
-                    </div>
-                    <span>Quality</span>
-                </div>
-                <div class="icon-item">
-                    <div class="icon-circle">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <span>Business Impact</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Unique Value Proposition -->
-    <section id="value-prop" class="value-prop">
-        <div class="diagonal-separator reverse"></div>
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">Why Sentaya</span>
-                <h2 class="section-title">Unique Value Proposition</h2>
-            </div>
-            <div class="value-grid">
-                <div class="value-item">
-                    <div class="value-number">4×</div>
-                    <div class="value-label">Better Compression</div>
-                </div>
-                <div class="value-item">
-                    <div class="value-number">3×</div>
-                    <div class="value-label">Lower Latency</div>
-                </div>
-                <div class="value-item">
-                    <div class="value-number">⚡</div>
-                    <div class="value-label">Lower Energy</div>
-                </div>
-                <div class="value-item">
-                    <div class="value-number"><i class="fas fa-server"></i></div>
-                    <div class="value-label">Works on Existing Infrastructure</div>
-                </div>
-                <div class="value-item">
-                    <div class="value-number"><i class="fas fa-microchip"></i></div>
-                    <div class="value-label">Cross-Platform (FPGA, GPU, CPU)</div>
-                </div>
-                <div class="value-item">
-                    <div class="value-number"><i class="fas fa-shield-alt"></i></div>
-                    <div class="value-label">Defence-Grade Robustness</div>
-                </div>
-            </div>
-            <div class="standout-visual">
-                <div class="standout-box">
-                    <div class="standout-content">
-                        <h3>Industry-Leading Performance</h3>
-                        <p>The only cross-platform AI codec delivering breakthrough compression ratios with minimal latency.</p>
+                <ul class="sol-features" aria-label="AI Data Codec features">
+                    <li><span class="feat accent">6×–20×</span> sensor data compression</li>
+                    <li><span class="feat">Lossy + lossless</span> modes</li>
+                    <li><span class="feat accent">&lt;30ms</span> latency</li>
+                    <li><span class="feat">Multi-sensor</span> EO / IR / Radar fusion</li>
+                    <li><span class="feat">AI-pipeline</span> native integration</li>
+                    <li><span class="feat">FDA-validated</span> precision</li>
+                </ul>
+                <div class="sol-targets">
+                    <span class="tgt-label">Designed for</span>
+                    <div class="tgt-tags" role="list" aria-label="Target applications">
+                        <span class="tag" role="listitem">MWIR / SWIR Sensors</span>
+                        <span class="tag" role="listitem">Medical Imaging</span>
+                        <span class="tag" role="listitem">Aerospace IoT</span>
+                        <span class="tag" role="listitem">Edge AI</span>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Competitor Comparison -->
-    <section id="comparison" class="comparison">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">Performance</span>
-                <h2 class="section-title">Competitor Comparison</h2>
+        <div class="cmp-wrap" data-animate>
+            <div class="cmp-header">
+                <span class="cmp-title">Technical Comparison</span>
+                <span class="cmp-note">vs. industry-standard codecs</span>
             </div>
-            <div class="comparison-charts">
-                <div class="chart-container">
-                    <h3>Compression Ratio Comparison</h3>
-                    <div class="bar-chart" id="compressionChart">
-                        <div class="chart-bar" data-value="90" data-label="H.264">
-                            <div class="bar-fill h265"></div>
-                            <span class="bar-value">0.9×</span>
-                        </div>
-                        <div class="chart-bar" data-value="100" data-label="H.265">
-                            <div class="bar-fill h265"></div>
-                            <span class="bar-value">1.0×</span>
-                        </div>
-                        <div class="chart-bar sentaya" data-value="400" data-label="Sentaya AI">
-                            <div class="bar-fill sentaya"></div>
-                            <span class="bar-value">4.0×</span>
-                        </div>
+            <div class="cmp-scroll" role="region" aria-label="Technical comparison table — scrollable">
+                <table class="cmp-table">
+                    <caption class="sr-only">Sentaya AI vs H.264 and H.265 — technical performance comparison</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Metric</th>
+                            <th scope="col">H.264</th>
+                            <th scope="col">H.265</th>
+                            <th scope="col" class="sentaya-col">Sentaya AI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Compression Ratio</td>
+                            <td class="bad"><i class="fas fa-times-circle cmp-icon" aria-hidden="true"></i> 0.9×</td>
+                            <td class="neutral">1.0× (baseline)</td>
+                            <td class="good sentaya-col"><i class="fas fa-check-circle cmp-icon" aria-hidden="true"></i> 4.0×</td>
+                        </tr>
+                        <tr>
+                            <td>End-to-End Latency</td>
+                            <td class="bad"><i class="fas fa-times-circle cmp-icon" aria-hidden="true"></i> 120ms</td>
+                            <td class="bad"><i class="fas fa-times-circle cmp-icon" aria-hidden="true"></i> 100ms</td>
+                            <td class="good sentaya-col"><i class="fas fa-check-circle cmp-icon" aria-hidden="true"></i> &lt;30ms</td>
+                        </tr>
+                        <tr>
+                            <td>Inter-frame Dependency</td>
+                            <td class="bad"><i class="fas fa-times-circle cmp-icon" aria-hidden="true"></i> Yes</td>
+                            <td class="bad"><i class="fas fa-times-circle cmp-icon" aria-hidden="true"></i> Yes</td>
+                            <td class="good sentaya-col"><i class="fas fa-check-circle cmp-icon" aria-hidden="true"></i> None</td>
+                        </tr>
+                        <tr>
+                            <td>FPGA Deployment</td>
+                            <td class="neutral">Partial</td>
+                            <td class="neutral">Partial</td>
+                            <td class="good sentaya-col"><i class="fas fa-check-circle cmp-icon" aria-hidden="true"></i> Native</td>
+                        </tr>
+                        <tr>
+                            <td>IR / Thermal Optimized</td>
+                            <td class="bad"><i class="fas fa-times-circle cmp-icon" aria-hidden="true"></i> No</td>
+                            <td class="bad"><i class="fas fa-times-circle cmp-icon" aria-hidden="true"></i> No</td>
+                            <td class="good sentaya-col"><i class="fas fa-check-circle cmp-icon" aria-hidden="true"></i> Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Power Consumption</td>
+                            <td class="bad"><i class="fas fa-times-circle cmp-icon" aria-hidden="true"></i> High</td>
+                            <td class="bad"><i class="fas fa-times-circle cmp-icon" aria-hidden="true"></i> High</td>
+                            <td class="good sentaya-col"><i class="fas fa-check-circle cmp-icon" aria-hidden="true"></i> Low</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     03 — APPLICATIONS
+══════════════════════════════════════════════════════════ -->
+<section id="use-cases" class="section use-cases">
+    <div class="container">
+        <div class="section-hdr left">
+            <span class="ghost-num" aria-hidden="true">03</span>
+            <span class="section-tag">Applications</span>
+            <h2>Operational<br>Environments</h2>
+            <p class="section-intro">Sentaya operates where standard codecs break down — edge platforms under vibration, RF-constrained links, and real-time AI pipelines.</p>
+        </div>
+
+        <div class="uc-grid">
+            <div class="uc-card" data-animate>
+                <div class="uc-num" aria-hidden="true">01</div>
+                <div class="uc-icon" aria-hidden="true"><i class="fas fa-satellite"></i></div>
+                <h3>ISR &amp; Surveillance</h3>
+                <p>Live intelligence, surveillance, and reconnaissance feeds transmitted over narrow RF links with sub-30ms latency and full frame independence. No artifacts under vibration or IR noise.</p>
+                <div class="uc-metrics" aria-label="ISR performance metrics">
+                    <div class="uc-metric">
+                        <span class="ucm-val accent">4×</span>
+                        <span class="ucm-lbl">bandwidth reduction</span>
+                    </div>
+                    <div class="uc-metric">
+                        <span class="ucm-val accent">&lt;30ms</span>
+                        <span class="ucm-lbl">latency</span>
                     </div>
                 </div>
-                <div class="chart-container">
-                    <h3>End-to-End Latency Comparison</h3>
-                    <div class="bar-chart" id="latencyChart">
-                        <div class="chart-bar" data-value="120" data-label="H.264">
-                            <div class="bar-fill h265"></div>
-                            <span class="bar-value">120ms</span>
-                        </div>
-                        <div class="chart-bar" data-value="100" data-label="H.265">
-                            <div class="bar-fill h265"></div>
-                            <span class="bar-value">100ms</span>
-                        </div>
-                        <div class="chart-bar sentaya" data-value="25" data-label="Sentaya AI">
-                            <div class="bar-fill sentaya"></div>
-                            <span class="bar-value">25ms</span>
-                        </div>
+            </div>
+
+            <div class="uc-card featured" data-animate>
+                <div class="uc-corner-br" aria-hidden="true"></div>
+                <div class="uc-num" aria-hidden="true">02</div>
+                <div class="uc-icon" aria-hidden="true"><i class="fas fa-plane"></i></div>
+                <h3>UAV &amp; Drone Systems</h3>
+                <p>Mission-critical video and sensor data compression optimized for low-power FPGA deployment on UAVs, drones, and loitering munitions. Operates under extreme motion and vibration conditions.</p>
+                <div class="uc-metrics" aria-label="UAV performance metrics">
+                    <div class="uc-metric">
+                        <span class="ucm-val accent">125 FPS</span>
+                        <span class="ucm-lbl">throughput</span>
                     </div>
-                    <div class="latency-note">
-                        <p><strong>Mission-Critical Threshold:</strong> &lt;50ms</p>
+                    <div class="uc-metric">
+                        <span class="ucm-val accent">FPGA</span>
+                        <span class="ucm-lbl">native</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="uc-card" data-animate>
+                <div class="uc-num" aria-hidden="true">03</div>
+                <div class="uc-icon" aria-hidden="true"><i class="fas fa-microchip"></i></div>
+                <h3>Satellite &amp; Space</h3>
+                <p>Downlink bandwidth is constrained and expensive. Sentaya's 4× compression ratio translates directly into mission capacity — more data per orbit window, lower operational cost.</p>
+                <div class="uc-metrics" aria-label="Satellite performance metrics">
+                    <div class="uc-metric">
+                        <span class="ucm-val accent">6–20×</span>
+                        <span class="ucm-lbl">sensor compression</span>
+                    </div>
+                    <div class="uc-metric">
+                        <span class="ucm-val accent">GPU/CPU</span>
+                        <span class="ucm-lbl">ready</span>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="diagonal-separator"></div>
-    </section>
+    </div>
+</section>
 
-    <!-- Market Applications -->
-    <section id="applications" class="applications">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">Markets</span>
-                <h2 class="section-title">Market Applications</h2>
+<!-- ══════════════════════════════════════════════════════════
+     04 — VALIDATION
+══════════════════════════════════════════════════════════ -->
+<section id="validation" class="section validation">
+    <div class="container">
+        <div class="section-hdr left">
+            <span class="ghost-num" aria-hidden="true">04</span>
+            <span class="section-tag">Validation</span>
+            <h2>Field-Tested.<br>Independently<br>Verified.</h2>
+            <p class="section-intro">Evaluated and validated by leading defense, aerospace, and regulatory organizations.</p>
+        </div>
+
+        <div class="val-list">
+            <div class="val-card" data-animate>
+                <div class="val-logo-wrap val-text-logo" aria-hidden="true">
+                    <span class="val-brand-abbr">IAI</span>
+                    <span class="val-brand-full">Israel Aerospace<br>Industries</span>
+                </div>
+                <div class="val-body">
+                    <h3>Defence Video Codec POC</h3>
+                    <p>Proof of Concept conducted with the MATAH Division of Israel Aerospace Industries (IAI) — one of the world's leading defense and aerospace prime contractors. Active engagement.</p>
+                    <span class="val-badge">
+                        <i class="fas fa-circle" aria-hidden="true"></i>
+                        Active POC
+                    </span>
+                </div>
             </div>
-            <div class="applications-grid">
-                <div class="application-category">
-                    <h3 class="category-title">
-                        <i class="fas fa-users"></i>
-                        Consumer
-                    </h3>
-                    <div class="application-items">
-                        <div class="app-item">
-                            <i class="fas fa-tv"></i>
-                            <span>Online Video Platforms (Netflix, YouTube)</span>
-                        </div>
-                        <div class="app-item">
-                            <i class="fas fa-gamepad"></i>
-                            <span>Gaming / XR / Mobile</span>
-                        </div>
-                        <div class="app-item">
-                            <i class="fas fa-desktop"></i>
-                            <span>8K Smart TVs</span>
-                        </div>
-                        <div class="app-item">
-                            <i class="fas fa-share-alt"></i>
-                            <span>Social Media</span>
-                        </div>
+
+            <div class="val-card" data-animate>
+                <div class="val-logo-wrap val-icon-wrap" aria-hidden="true">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <div class="val-body">
+                    <h3>FDA-Approved Application</h3>
+                    <p>The Sentaya Data Codec has been validated within an FDA-approved medical imaging application, demonstrating precision and reliability under strict regulatory standards.</p>
+                    <span class="val-badge">
+                        <i class="fas fa-circle" aria-hidden="true"></i>
+                        Validated
+                    </span>
+                </div>
+            </div>
+
+            <div class="val-card" data-animate>
+                <div class="val-logo-wrap val-dual-logo" aria-hidden="true">
+                    <img src="AstraLogo.png" alt="" class="val-logo"
+                         width="90" height="38" loading="lazy"
+                         onerror="this.style.display='none'">
+                    <img src="StarburstLogo.png" alt="" class="val-logo"
+                         width="90" height="32" loading="lazy"
+                         onerror="this.style.display='none'">
+                </div>
+                <div class="val-body">
+                    <h3>ASTRA Acceleration Program</h3>
+                    <p>Selected for the ASTRA acceleration program powered by Starburst Aerospace &amp; IAI — a highly competitive program for breakthrough dual-use defense technology companies.</p>
+                    <span class="val-badge">
+                        <i class="fas fa-circle" aria-hidden="true"></i>
+                        Program Member
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     05 — TEAM
+══════════════════════════════════════════════════════════ -->
+<section id="team" class="section team">
+    <div class="container">
+        <div class="section-hdr">
+            <span class="section-tag">Leadership</span>
+            <h2>Built by Deep-Domain<br>Engineers</h2>
+            <p class="section-intro">Combined decades of signal processing, defense systems, and program delivery from world-class institutions.</p>
+        </div>
+
+        <div class="team-grid">
+            <div class="founder-card" data-animate>
+                <div class="founder-top">
+                    <div class="founder-avatar" aria-hidden="true">DY</div>
+                    <div class="founder-title">
+                        <h3>Daniel Yagudaev, M.Sc.</h3>
+                        <span class="founder-role">CEO &amp; Co-Founder</span>
                     </div>
                 </div>
-                <div class="application-category">
-                    <h3 class="category-title">
-                        <i class="fas fa-shield-alt"></i>
-                        Defence
-                    </h3>
-                    <div class="application-items">
-                        <div class="app-item">
-                            <i class="fas fa-satellite"></i>
-                            <span>Satellites</span>
-                        </div>
-                        <div class="app-item">
-                            <i class="fas fa-plane"></i>
-                            <span>UAV / Drones</span>
-                        </div>
-                        <div class="app-item">
-                            <i class="fas fa-rocket"></i>
-                            <span>Missiles</span>
-                        </div>
-                        <div class="app-item">
-                            <i class="fas fa-eye"></i>
-                            <span>Monitoring Systems</span>
-                        </div>
+                <div class="founder-creds">
+                    <div class="cred">
+                        <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+                        <span>M.Sc. Signal Processing &amp; ML — FAU Erlangen-Nürnberg</span>
+                    </div>
+                    <div class="cred">
+                        <i class="fas fa-microchip" aria-hidden="true"></i>
+                        <span>DSP Architect &amp; Video Systems FPGA Engineer — Elbit Systems</span>
+                    </div>
+                    <div class="cred">
+                        <i class="fas fa-building" aria-hidden="true"></i>
+                        <span>15 years: Siemens, Elbit Systems, Fraunhofer IIS</span>
+                    </div>
+                </div>
+                <div class="founder-orgs" role="list" aria-label="Previous organisations">
+                    <span class="org" role="listitem">Siemens</span>
+                    <span class="org" role="listitem">Elbit Systems</span>
+                    <span class="org" role="listitem">Fraunhofer IIS</span>
+                </div>
+            </div>
+
+            <div class="founder-card" data-animate>
+                <div class="founder-top">
+                    <div class="founder-avatar" aria-hidden="true">RA</div>
+                    <div class="founder-title">
+                        <h3>Ruslan Abramov</h3>
+                        <span class="founder-role">COO &amp; Co-Founder</span>
+                    </div>
+                </div>
+                <div class="founder-creds">
+                    <div class="cred">
+                        <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                        <span>8 years Project Manager — Hermon Labs (defence systems)</span>
+                    </div>
+                    <div class="cred">
+                        <i class="fas fa-users" aria-hidden="true"></i>
+                        <span>Team Lead — Techaya, Alma Lasers</span>
+                    </div>
+                    <div class="cred">
+                        <i class="fas fa-building" aria-hidden="true"></i>
+                        <span>14 years in defence and medical systems</span>
+                    </div>
+                </div>
+                <div class="founder-orgs" role="list" aria-label="Previous organisations">
+                    <span class="org" role="listitem">Hermon Labs</span>
+                    <span class="org" role="listitem">Techaya</span>
+                    <span class="org" role="listitem">Alma Lasers</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     ROADMAP
+══════════════════════════════════════════════════════════ -->
+<section id="roadmap" class="section roadmap">
+    <div class="container">
+        <div class="section-hdr">
+            <span class="section-tag">Roadmap</span>
+            <h2>From Validated<br>to Deployed</h2>
+        </div>
+        <div class="roadmap-line" role="list" aria-label="Product roadmap milestones">
+            <div class="rm-item active" data-animate role="listitem">
+                <div class="rm-marker" aria-hidden="true">
+                    <div class="rm-dot active"></div>
+                    <div class="rm-line"></div>
+                </div>
+                <div class="rm-content">
+                    <span class="rm-year accent">2025 — Now</span>
+                    <h4>Defence Codec R&amp;D + IAI POC</h4>
+                    <p>Active Proof of Concept with Israel Aerospace Industries. Defence-grade codec in development. FDA-validated data codec operational.</p>
+                    <span class="rm-status">
+                        <span class="rm-pulse" aria-hidden="true"></span>
+                        In Progress
+                    </span>
+                </div>
+            </div>
+            <div class="rm-item" data-animate role="listitem">
+                <div class="rm-marker" aria-hidden="true">
+                    <div class="rm-dot"></div>
+                    <div class="rm-line"></div>
+                </div>
+                <div class="rm-content">
+                    <span class="rm-year">2026 – 2027</span>
+                    <h4>Defence Market Entry + Consumer Codec</h4>
+                    <p>Commercial launch in the defence sector. Consumer codec development and patent filings underway.</p>
+                </div>
+            </div>
+            <div class="rm-item" data-animate role="listitem">
+                <div class="rm-marker" aria-hidden="true">
+                    <div class="rm-dot"></div>
+                </div>
+                <div class="rm-content">
+                    <span class="rm-year">2028 – 2030</span>
+                    <h4>MPEG Standardization + Consumer Launch</h4>
+                    <p>Industry standardization submission. Full consumer market deployment across OTT, 8K, and XR platforms.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     CONTACT
+══════════════════════════════════════════════════════════ -->
+<section id="contact" class="section contact">
+    <div class="container">
+        <div class="contact-top">
+            <div class="contact-headline-block">
+                <span class="section-tag">Get in Touch</span>
+                <h2>Ready to<br>Evaluate?</h2>
+            </div>
+            <div class="contact-nda-block">
+                <div class="nda-card">
+                    <i class="fas fa-lock" aria-hidden="true"></i>
+                    <div>
+                        <strong>NDA-Protected Discussions</strong>
+                        <p>Technical evaluations and demonstrations are available under non-disclosure agreement upon request.</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Market Size -->
-    <section id="market-size" class="market-size">
-        <div class="diagonal-separator reverse"></div>
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">Opportunity</span>
-                <h2 class="section-title">Market Size</h2>
-            </div>
-            <div class="market-chart">
-                <div class="market-bar consumer" data-value="150">
-                    <div class="bar-content">
-                        <span class="bar-label">Consumer</span>
-                        <span class="bar-amount">$150B</span>
-                    </div>
-                </div>
-                <div class="market-bar defence" data-value="45">
-                    <div class="bar-content">
-                        <span class="bar-label">Defence</span>
-                        <span class="bar-amount">$45B</span>
-                    </div>
-                </div>
-                <div class="market-bar other" data-value="6">
-                    <div class="bar-content">
-                        <span class="bar-label">Other</span>
-                        <span class="bar-amount">$6B</span>
-                    </div>
-                </div>
-            </div>
-            <div class="market-total">
-                <span class="total-label">Total Addressable Market</span>
-                <span class="total-value">$201B</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Roadmap -->
-    <section id="roadmap" class="roadmap">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">Future</span>
-                <h2 class="section-title">Roadmap</h2>
-            </div>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-year">2025</div>
-                    <div class="timeline-content">
-                        <h4>R&D, Defence Codec Development</h4>
-                        <p>Advanced research and development of defence-grade codec solutions</p>
-                    </div>
-                </div>
-                <div class="timeline-item highlight">
-                    <div class="timeline-year">2025</div>
-                    <div class="timeline-content">
-                        <h4>IAI POC</h4>
-                        <p>Proof of Concept with Israel Aerospace Industries</p>
-                        <span class="highlight-badge">Current</span>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-year">2026</div>
-                    <div class="timeline-content">
-                        <h4>Consumer Codec Development, Patent Registration</h4>
-                        <p>Expansion into consumer markets and IP protection</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-year">2027</div>
-                    <div class="timeline-content">
-                        <h4>Defence Market Entrance</h4>
-                        <p>Commercial launch in defence sector</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-year">2028</div>
-                    <div class="timeline-content">
-                        <h4>MPEG Standardization, Tech Growth</h4>
-                        <p>Industry standardization and technology expansion</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-year">2030</div>
-                    <div class="timeline-content">
-                        <h4>Consumer Market Entrance</h4>
-                        <p>Full consumer market deployment</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="diagonal-separator"></div>
-    </section>
-
-    <!-- Fundraising -->
-    <section id="fundraising" class="fundraising">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">Investment</span>
-                <h2 class="section-title">Raising Seed Round</h2>
-            </div>
-            <div class="fundraising-content">
-                <p class="lead-text">
-                    Funds will be used to accelerate development and market expansion across defence and consumer markets.
-                </p>
-                <div class="funding-grid">
-                    <div class="funding-item">
-                        <i class="fas fa-shield-alt"></i>
-                        <h4>Defence Solution Development</h4>
-                    </div>
-                    <div class="funding-item">
-                        <i class="fas fa-handshake"></i>
-                        <h4>Building Partnerships</h4>
-                    </div>
-                    <div class="funding-item">
-                        <i class="fas fa-certificate"></i>
-                        <h4>Patent Registration</h4>
-                    </div>
-                    <div class="funding-item">
-                        <i class="fas fa-globe"></i>
-                        <h4>MPEG/ISO Standardization</h4>
-                    </div>
-                    <div class="funding-item">
-                        <i class="fas fa-code"></i>
-                        <h4>Commercial Codec Development</h4>
-                    </div>
-                    <div class="funding-item">
-                        <i class="fas fa-users"></i>
-                        <h4>Team Expansion</h4>
-                    </div>
-                    <div class="funding-item">
-                        <i class="fas fa-chart-line"></i>
-                        <h4>Market Growth</h4>
-                    </div>
-                </div>
-                <div class="fundraising-cta">
-                    <a href="#contact" class="btn-primary btn-large">
-                        <span>Request Pitch Deck</span>
-                        <i class="fas fa-file-pdf"></i>
+        <div class="contact-persons">
+            <div class="contact-person" data-animate>
+                <div class="cp-avatar" aria-hidden="true">DY</div>
+                <div class="cp-info">
+                    <h4>Daniel Yagudaev</h4>
+                    <span class="cp-role">CEO</span>
+                    <a href="mailto:daniel@sentaya.ai" class="cp-link">
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                        daniel@sentaya.ai
+                    </a>
+                    <a href="tel:+972546425450" class="cp-link">
+                        <i class="fas fa-phone" aria-hidden="true"></i>
+                        +972 546 425 450
                     </a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Founders -->
-    <section id="founders" class="founders">
-        <div class="diagonal-separator reverse"></div>
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">Leadership</span>
-                <h2 class="section-title">Founders</h2>
-            </div>
-            <div class="founders-grid">
-                <div class="founder-card">
-                    <div class="founder-image">
-                        <div class="image-placeholder">
-                            <i class="fas fa-user"></i>
-                        </div>
-                    </div>
-                    <div class="founder-info">
-                        <h3>Daniel Yagudaev, M.Sc.</h3>
-                        <p class="founder-role">CEO</p>
-                        <ul class="founder-credentials">
-                            <li><i class="fas fa-graduation-cap"></i> M.Sc. Signal Processing & ML (FAU Erlangen-Nürnberg)</li>
-                            <li><i class="fas fa-briefcase"></i> DSP Architect</li>
-                            <li><i class="fas fa-cog"></i> Video Systems FPGA Engineer (Elbit Systems)</li>
-                            <li><i class="fas fa-history"></i> 15 years at Siemens, Elbit, Fraunhofer</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="founder-card">
-                    <div class="founder-image">
-                        <div class="image-placeholder">
-                            <i class="fas fa-user"></i>
-                        </div>
-                    </div>
-                    <div class="founder-info">
-                        <h3>Ruslan Abramov</h3>
-                        <p class="founder-role">COO</p>
-                        <ul class="founder-credentials">
-                            <li><i class="fas fa-briefcase"></i> 8 years Project Manager (Hermon Labs)</li>
-                            <li><i class="fas fa-users"></i> Team Lead (Techaya, Alma Lasers)</li>
-                            <li><i class="fas fa-history"></i> 14 years in defence & medical</li>
-                        </ul>
-                    </div>
+            <div class="contact-person" data-animate>
+                <div class="cp-avatar" aria-hidden="true">RA</div>
+                <div class="cp-info">
+                    <h4>Ruslan Abramov</h4>
+                    <span class="cp-role">COO</span>
+                    <a href="mailto:ruslan@sentaya.ai" class="cp-link">
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                        ruslan@sentaya.ai
+                    </a>
+                    <a href="tel:+972504240184" class="cp-link">
+                        <i class="fas fa-phone" aria-hidden="true"></i>
+                        +972 504 240 184
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Validation -->
-    <section id="validation" class="validation">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">Validation</span>
-                <h2 class="section-title">Real-World Validation</h2>
-            </div>
-            <div class="validation-content">
-                <div class="validation-items">
-                    <div class="validation-item">
-                        <i class="fas fa-video"></i>
-                        <h4>Video Codec POC</h4>
-                        <p>Proof of Concept with IAI (MATAH Division)</p>
-                    </div>
-                    <div class="validation-item">
-                        <i class="fas fa-heartbeat"></i>
-                        <h4>Data Codec Validation</h4>
-                        <p>Validated in FDA-approved medical application</p>
-                    </div>
-                    <div class="validation-item">
-                        <i class="fas fa-rocket"></i>
-                        <h4>ASTRA Program</h4>
-                        <p>Part of ASTRA acceleration program powered by Starburst & IAI</p>
-                    </div>
-                </div>
-                <div class="validation-logos">
-                    <div class="partner-logo-item">
-                        <img src="IAI_logo_2025.jpg" alt="IAI" class="partner-logo">
-                    </div>
-                    <div class="partner-logo-item">
-                        <img src="AstraLogo.png" alt="ASTRA" class="partner-logo">
-                    </div>
-                    <div class="partner-logo-item">
-                        <img src="StarburstLogo.png" alt="Starburst" class="partner-logo">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="diagonal-separator"></div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">Get In Touch</span>
-                <h2 class="section-title">Contact Us</h2>
-            </div>
-            <div class="contact-grid">
-                <div class="contact-card">
-                    <div class="contact-header">
-                        <i class="fas fa-user-tie"></i>
-                        <h3>Daniel Yagudaev</h3>
-                        <p class="contact-role">CEO</p>
-                    </div>
-                    <div class="contact-details">
-                        <a href="mailto:daniel@sentaya.ai" class="contact-link">
-                            <i class="fas fa-envelope"></i>
-                            daniel@sentaya.ai
-                        </a>
-                        <a href="tel:+972546425450" class="contact-link">
-                            <i class="fas fa-phone"></i>
-                            +972 546 425 450
-                        </a>
-                    </div>
-                </div>
-                <div class="contact-card">
-                    <div class="contact-header">
-                        <i class="fas fa-user-tie"></i>
-                        <h3>Ruslan Abramov</h3>
-                        <p class="contact-role">COO</p>
-                    </div>
-                    <div class="contact-details">
-                        <a href="mailto:ruslan@sentaya.ai" class="contact-link">
-                            <i class="fas fa-envelope"></i>
-                            ruslan@sentaya.ai
-                        </a>
-                        <a href="tel:+972504240184" class="contact-link">
-                            <i class="fas fa-phone"></i>
-                            +972 504 240 184
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="contact-cta">
-                <a href="#contact" class="btn-primary btn-large">
-                    <span>Book a Call</span>
-                    <i class="fas fa-calendar"></i>
-                </a>
-                <a href="#contact" class="btn-secondary btn-large">
-                    <span>Get Technical Docs</span>
-                    <i class="fas fa-file-alt"></i>
+            <div class="contact-cta-block" data-animate>
+                <p>We work with defence contractors, system integrators, aerospace primes, and technology partners worldwide.</p>
+                <a href="mailto:daniel@sentaya.ai?subject=Technical%20Evaluation%20Request"
+                   class="btn-primary btn-lg">
+                    Request Technical Evaluation
+                    <i class="fas fa-arrow-right" aria-hidden="true"></i>
                 </a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="SentayaLogoHortNeg2.png" alt="Sentaya AI" class="logo-image">
-                </div>
-                <div class="footer-address">
-                    <p>Menachem Begin 144, 38th floor</p>
-                    <p>Tel Aviv-Yafo, Israel</p>
-                </div>
-                <div class="footer-social">
-                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                </div>
+</main><!-- end #main-content -->
+
+<!-- ══════════════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════════════ -->
+<footer class="footer" role="contentinfo">
+    <div class="container">
+        <div class="footer-inner">
+            <div class="footer-logo">
+                <img src="SentayaLogoHortNeg2.png" alt="Sentaya AI"
+                     class="logo-img footer-logo-img"
+                     width="180" height="30"
+                     loading="lazy">
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Sentaya AI. All rights reserved.</p>
+            <address class="footer-addr">
+                <p>Menachem Begin 144, 38th floor</p>
+                <p>Tel Aviv-Yafo, Israel</p>
+            </address>
+            <div class="footer-right">
+                <a href="https://www.linkedin.com/company/sentaya-ai"
+                   class="social-link"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Sentaya AI on LinkedIn (opens in new tab)">
+                    <i class="fab fa-linkedin" aria-hidden="true"></i>
+                </a>
+                <span class="footer-tagline">AI-Powered Compression<br>for Mission-Critical Systems.</span>
             </div>
         </div>
-    </footer>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Sentaya AI. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

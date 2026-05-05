@@ -1,605 +1,425 @@
-// Sentaya AI - Interactive Website Scripts
+/* ============================================================
+   SENTAYA AI — Main Script
+   UI/UX Pro Max skill applied:
+   · Active nav (P9) · Reduced-motion (P7) · Accessibility (P1)
+   · Canvas network topology · Typewriter · Counters · Scroll FX
+   ============================================================ */
 
-document.addEventListener('DOMContentLoaded', function() {
+/* P7/P1 — check OS reduced-motion preference once at load */
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+document.addEventListener('DOMContentLoaded', () => {
+    initBodyReveal();
     initNavbar();
-    initScrollAnimations();
-    initCharts();
-    initTimeline();
-    initMarketBars();
-    initComparisonCharts();
-    initParticles();
-    initVideoGrid();
+    initActiveNav();
+    if (!prefersReducedMotion) initHeroCanvas();
+    initTypewriter();
+    initScrollObserver();
+    initCounters();
+    initSmoothScroll();
+    if (!prefersReducedMotion) initParallaxGhostNums();
 });
 
-// Navbar functionality
+
+/* ── Body reveal ─────────────────────────────────────────── */
+function initBodyReveal() {
+    const reveal = () => document.body.classList.add('loaded');
+    if (document.readyState === 'complete') { reveal(); }
+    else { window.addEventListener('load', reveal); }
+}
+
+
+/* ── Navbar ──────────────────────────────────────────────── */
 function initNavbar() {
-    const navbar = document.querySelector('.navbar');
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-    
-    // Navbar scroll effect
-    let lastScroll = 0;
+    const navbar = document.getElementById('navbar');
+    const toggle = document.getElementById('navToggle');
+    const menu   = document.getElementById('navMenu');
+
+    let ticking = false;
     window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-        
-        if (currentScroll > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-        
-        lastScroll = currentScroll;
-    });
-    
-    // Mobile menu toggle
-    if (mobileMenuToggle) {
-    mobileMenuToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        mobileMenuToggle.classList.toggle('active');
-        });
-    }
-    
-    // Close mobile menu on link click
-    document.querySelectorAll('.nav-menu a').forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            mobileMenuToggle.classList.remove('active');
-        });
-    });
-}
-
-// Scroll animations
-function initScrollAnimations() {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-    
-    // Observe elements for animation
-    document.querySelectorAll('.solution-card, .value-item, .app-item, .founder-card, .validation-item, .contact-card').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
-    });
-}
-
-// Initialize charts
-function initCharts() {
-    initSensorGrowthChart();
-    initLatencyBars();
-}
-
-// Sensor Growth Chart
-function initSensorGrowthChart() {
-    const canvas = document.getElementById('sensorGrowthChart');
-    if (!canvas) return;
-    
-    const drawChart = () => {
-        const ctx = canvas.getContext('2d');
-        const width = canvas.offsetWidth || 500;
-        canvas.width = width;
-        const height = canvas.height = 250;
-        
-        const padding = 50;
-        const chartWidth = width - padding * 2;
-        const chartHeight = height - padding * 2;
-        
-        // Clear canvas
-        ctx.clearRect(0, 0, width, height);
-        
-        // Draw grid lines
-        ctx.strokeStyle = 'rgba(159, 201, 10, 0.15)';
-        ctx.lineWidth = 1;
-        
-        // Horizontal grid lines
-        for (let i = 0; i <= 5; i++) {
-            const y = padding + (i * chartHeight / 5);
-            ctx.beginPath();
-            ctx.moveTo(padding, y);
-            ctx.lineTo(width - padding, y);
-            ctx.stroke();
-        }
-        
-        // Vertical grid lines
-        for (let i = 0; i <= 5; i++) {
-            const x = padding + (i * chartWidth / 5);
-            ctx.beginPath();
-            ctx.moveTo(x, padding);
-            ctx.lineTo(x, height - padding);
-            ctx.stroke();
-        }
-        
-        // Draw codec efficiency curve (flatter)
-        ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.moveTo(padding, height - padding);
-        
-        for (let x = 0; x <= chartWidth; x++) {
-            const normalizedX = x / chartWidth;
-            const codecY = normalizedX * 0.3; // Slow growth
-            const y = height - padding - (codecY * chartHeight);
-            const actualX = padding + x;
-            ctx.lineTo(actualX, y);
-        }
-        ctx.stroke();
-        
-        // Draw sensor data curve (exponential - Sentaya green)
-        ctx.strokeStyle = '#9fc90a';
-        ctx.lineWidth = 3;
-        ctx.beginPath();
-        ctx.moveTo(padding, height - padding);
-        
-        for (let x = 0; x <= chartWidth; x++) {
-            const normalizedX = x / chartWidth;
-            const sensorY = Math.pow(normalizedX, 2.8); // Exponential growth
-            const y = height - padding - (sensorY * chartHeight);
-            const actualX = padding + x;
-            ctx.lineTo(actualX, y);
-        }
-        ctx.stroke();
-        
-        // Add axis labels
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
-        ctx.font = '11px Oxanium';
-        ctx.fillText('2014', padding, height - padding + 20);
-        ctx.fillText('2030', width - padding - 25, height - padding + 20);
-        
-        ctx.save();
-        ctx.translate(15, height / 2);
-        ctx.rotate(-Math.PI / 2);
-        ctx.fillText('Data Rate (Gb/s)', 0, 0);
-        ctx.restore();
-    };
-    
-    // Use intersection observer to draw when visible
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                drawChart();
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-    
-    const chartContainer = canvas.closest('.chart-container');
-    if (chartContainer) {
-        observer.observe(chartContainer);
-    } else {
-        // Fallback: draw immediately
-        setTimeout(drawChart, 100);
-    }
-    
-    // Redraw on resize
-    window.addEventListener('resize', () => {
-        if (chartContainer && chartContainer.getBoundingClientRect().top < window.innerHeight) {
-            drawChart();
-        }
-    });
-}
-
-// Initialize latency bars animation
-function initLatencyBars() {
-    const latencyBars = document.querySelectorAll('.latency-bar');
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const bars = entry.target.parentElement.querySelectorAll('.latency-bar');
-                bars.forEach((bar, index) => {
-                    setTimeout(() => {
-                        const value = parseFloat(bar.getAttribute('data-value'));
-                        const barFill = bar.querySelector('.bar-fill');
-                        if (barFill) {
-                            const percentage = (value / 100) * 100;
-                            barFill.style.width = `${percentage}%`;
-                            barFill.style.transition = 'width 1.5s ease-out';
-                        }
-                    }, index * 150);
-                });
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.3 });
-    
-    const chartContainer = document.querySelector('.latency-chart-container');
-    if (chartContainer) {
-        observer.observe(chartContainer);
-    }
-}
-
-// Initialize timeline animations
-function initTimeline() {
-    const timelineItems = document.querySelectorAll('.timeline-item');
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
-            if (entry.isIntersecting) {
-                setTimeout(() => {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateX(0)';
-                }, index * 200);
-            }
-        });
-    }, { threshold: 0.2 });
-    
-    timelineItems.forEach(item => {
-        item.style.opacity = '0';
-        item.style.transform = 'translateX(-30px)';
-        item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(item);
-    });
-}
-
-// Initialize market size bars
-function initMarketBars() {
-    const marketBars = document.querySelectorAll('.market-bar');
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const bar = entry.target;
-                const value = parseFloat(bar.getAttribute('data-value'));
-                const barContent = bar.querySelector('.bar-content');
-                
-                // Calculate width based on value (150B is max)
-                const percentage = (value / 150) * 100;
-                
-    setTimeout(() => {
-                    barContent.style.width = `${percentage}%`;
-                }, 100);
-                
-                observer.unobserve(bar);
-            }
-        });
-    }, { threshold: 0.5 });
-    
-    marketBars.forEach(bar => {
-        observer.observe(bar);
-    });
-}
-
-// Initialize comparison charts
-function initComparisonCharts() {
-    const compressionChart = document.getElementById('compressionChart');
-    const latencyChart = document.getElementById('latencyChart');
-    
-    if (compressionChart) {
-        animateBars(compressionChart, 'compression');
-    }
-    
-    if (latencyChart) {
-        animateBars(latencyChart, 'latency');
-    }
-}
-
-function animateBars(container, type) {
-    const bars = container.querySelectorAll('.chart-bar');
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                bars.forEach((bar, index) => {
-    setTimeout(() => {
-                        const value = parseFloat(bar.getAttribute('data-value'));
-                        const barFill = bar.querySelector('.bar-fill');
-                        
-                        if (!barFill) return;
-                        
-                        if (type === 'compression') {
-                            // Compression: max is 400 (Sentaya), so scale accordingly
-                            const maxValue = 400;
-                            const percentage = Math.min((value / maxValue) * 100, 100);
-                            barFill.style.width = `${percentage}%`;
-                            barFill.style.transition = 'width 1.5s ease-out';
-                        } else {
-                            // Latency: max is 100ms, scale normally
-                            const maxValue = 100;
-                            const percentage = (value / maxValue) * 100;
-                            barFill.style.width = `${percentage}%`;
-                            barFill.style.transition = 'width 1.5s ease-out';
-                        }
-                    }, index * 150);
-                });
-                
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.3 });
-    
-    observer.observe(container);
-}
-
-// Initialize particles animation
-function initParticles() {
-    const particlesContainer = document.querySelector('.particles');
-    if (!particlesContainer) return;
-    
-    // Create floating particles
-    for (let i = 0; i < 20; i++) {
-        createParticle(particlesContainer);
-    }
-}
-
-function createParticle(container) {
-    const particle = document.createElement('div');
-    particle.style.position = 'absolute';
-    particle.style.width = Math.random() * 4 + 2 + 'px';
-    particle.style.height = particle.style.width;
-    particle.style.background = 'rgba(159, 201, 10, 0.3)';
-    particle.style.borderRadius = '50%';
-    particle.style.left = Math.random() * 100 + '%';
-    particle.style.top = Math.random() * 100 + '%';
-    particle.style.pointerEvents = 'none';
-    
-    const duration = Math.random() * 10 + 10;
-    const delay = Math.random() * 5;
-    
-    particle.style.animation = `floatParticle ${duration}s ${delay}s infinite`;
-    
-    container.appendChild(particle);
-}
-
-// Add CSS for particle animation
-const style = document.createElement('style');
-style.textContent += `
-    @keyframes floatParticle {
-        0% {
-            transform: translate(0, 0) scale(1);
-            opacity: 0;
-        }
-        10% {
-            opacity: 0.3;
-        }
-        90% {
-            opacity: 0.3;
-        }
-        100% {
-            transform: translate(${Math.random() * 200 - 100}px, ${Math.random() * 200 - 100}px) scale(0);
-            opacity: 0;
-        }
-    }
-`;
-document.head.appendChild(style);
-
-// Initialize video grid animation
-function initVideoGrid() {
-    const videoGrid = document.querySelector('.video-grid');
-    if (!videoGrid) return;
-    
-    // Create animated video pixels
-    for (let i = 0; i < 50; i++) {
-        createVideoPixel(videoGrid);
-    }
-}
-
-function createVideoPixel(container) {
-    const pixel = document.createElement('div');
-    pixel.style.position = 'absolute';
-    pixel.style.width = '2px';
-    pixel.style.height = '2px';
-    pixel.style.background = 'rgba(159, 201, 10, 0.1)';
-    pixel.style.left = Math.random() * 100 + '%';
-    pixel.style.top = Math.random() * 100 + '%';
-    pixel.style.pointerEvents = 'none';
-    pixel.style.boxShadow = '0 0 4px rgba(159, 201, 10, 0.3)';
-    
-    const duration = Math.random() * 3 + 2;
-    pixel.style.animation = `pixelPulse ${duration}s infinite`;
-    
-    container.appendChild(pixel);
-}
-
-style.textContent += `
-    @keyframes pixelPulse {
-        0%, 100% {
-            opacity: 0.1;
-            transform: scale(1);
-        }
-        50% {
-            opacity: 0.5;
-            transform: scale(1.5);
-        }
-    }
-`;
-
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');
-        if (href === '#') return;
-        
-        e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) {
-            const offsetTop = target.offsetTop - 80;
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                navbar.classList.toggle('scrolled', window.scrollY > 80);
+                ticking = false;
             });
+            ticking = true;
         }
-    });
-});
+    }, { passive: true });
 
-// Add hover effects to cards
-document.querySelectorAll('.solution-card, .value-item, .app-item, .founder-card').forEach(card => {
-    card.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-5px)';
-    });
-    
-    card.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0)';
-    });
-});
+    if (toggle && menu) {
+        toggle.addEventListener('click', () => {
+            const open = menu.classList.toggle('open');
+            toggle.classList.toggle('open', open);
+            toggle.setAttribute('aria-expanded', String(open));
+            toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+        });
 
-// Animate numbers on scroll
-function animateNumbers() {
-    const statBoxes = document.querySelectorAll('.stat-box');
-    
+        menu.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!navbar.contains(e.target)) closeMenu();
+        });
+
+        /* Close on Escape key — P9 modal-escape principle */
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && menu.classList.contains('open')) closeMenu();
+        });
+    }
+
+    function closeMenu() {
+        if (!menu || !toggle) return;
+        menu.classList.remove('open');
+        toggle.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Open navigation menu');
+    }
+}
+
+
+/* ── Active Nav — P9 Navigation: nav-state-active ───────── */
+function initActiveNav() {
+    const navLinks = Array.from(document.querySelectorAll('.nav-link[href^="#"]'));
+    if (!navLinks.length) return;
+
+    const sectionMap = navLinks
+        .map(link => ({
+            link,
+            section: document.getElementById(link.getAttribute('href').slice(1)),
+        }))
+        .filter(({ section }) => section !== null);
+
+    const setActive = () => {
+        /* Determine current section: last one whose top is at/above nav + offset */
+        const scrollY = window.scrollY + parseInt(
+            getComputedStyle(document.documentElement).getPropertyValue('--nav-h') || '68',
+            10
+        ) + 32;
+
+        let current = null;
+        sectionMap.forEach(({ section }) => {
+            if (section.offsetTop <= scrollY) current = section;
+        });
+
+        sectionMap.forEach(({ link, section }) => {
+            const isActive = section === current;
+            link.classList.toggle('active', isActive);
+            /* aria-current="page" for accessibility — P1 */
+            if (isActive) {
+                link.setAttribute('aria-current', 'true');
+            } else {
+                link.removeAttribute('aria-current');
+            }
+        });
+    };
+
+    window.addEventListener('scroll', setActive, { passive: true });
+    setActive(); /* run once on load */
+}
+
+
+/* ── Hero Canvas — Dense Network Topology ───────────────── */
+function initHeroCanvas() {
+    const canvas = document.getElementById('heroCanvas');
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    let nodes = [], edges = [], packets = [];
+    let w = 0, h = 0, rafId = null;
+
+    const CFG = {
+        nodeDensity: 38,
+        maxDist:    160,
+        speed:      0.22,
+        maxPackets: 22,
+        spawnProb:  0.055,
+        lineAlpha:  0.09,
+        nodePulse:  0.018,
+        pktSpeedLo: 0.005,
+        pktSpeedHi: 0.011,
+    };
+
+    function resize() {
+        w = canvas.width  = canvas.offsetWidth;
+        h = canvas.height = canvas.offsetHeight;
+        build();
+    }
+
+    function build() {
+        const count = Math.max(28, Math.floor((w * h) / (CFG.nodeDensity * CFG.nodeDensity)));
+        nodes = Array.from({ length: Math.min(count, 80) }, () => ({
+            x: Math.random() * w,
+            y: Math.random() * h,
+            vx: (Math.random() - 0.5) * CFG.speed,
+            vy: (Math.random() - 0.5) * CFG.speed,
+            phase: Math.random() * Math.PI * 2,
+            pSpeed: CFG.nodePulse + Math.random() * 0.012,
+            r: 1.2 + Math.random() * 1.8,
+        }));
+        rebuildEdges();
+        packets = [];
+        for (let i = 0; i < 8; i++) spawnPacket();
+    }
+
+    function rebuildEdges() {
+        edges = [];
+        const d2 = CFG.maxDist * CFG.maxDist;
+        for (let i = 0; i < nodes.length; i++) {
+            for (let j = i + 1; j < nodes.length; j++) {
+                const dx = nodes[i].x - nodes[j].x;
+                const dy = nodes[i].y - nodes[j].y;
+                const dist2 = dx * dx + dy * dy;
+                if (dist2 < d2) {
+                    edges.push({
+                        a: i, b: j,
+                        alpha: (1 - Math.sqrt(dist2) / CFG.maxDist) * CFG.lineAlpha,
+                    });
+                }
+            }
+        }
+    }
+
+    function spawnPacket() {
+        if (!edges.length) return;
+        const ei = (Math.random() * edges.length) | 0;
+        packets.push({
+            ei,
+            t: 0,
+            speed: CFG.pktSpeedLo + Math.random() * (CFG.pktSpeedHi - CFG.pktSpeedLo),
+            rev: Math.random() < 0.5,
+        });
+    }
+
+    let frameCount = 0;
+    function frame() {
+        ctx.clearRect(0, 0, w, h);
+        frameCount++;
+
+        for (const n of nodes) {
+            n.x += n.vx; n.y += n.vy; n.phase += n.pSpeed;
+            if (n.x < 0 || n.x > w) n.vx *= -1;
+            if (n.y < 0 || n.y > h) n.vy *= -1;
+        }
+
+        if (frameCount % 90 === 0) rebuildEdges();
+
+        for (const e of edges) {
+            const a = nodes[e.a], b = nodes[e.b];
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.strokeStyle = `rgba(159,201,10,${e.alpha})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+        }
+
+        for (const n of nodes) {
+            const p = (Math.sin(n.phase) + 1) * 0.5;
+            ctx.beginPath();
+            ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(159,201,10,${0.12 + p * 0.30})`;
+            ctx.fill();
+        }
+
+        for (let i = packets.length - 1; i >= 0; i--) {
+            const pk = packets[i];
+            if (pk.ei >= edges.length) { packets.splice(i, 1); continue; }
+
+            const e = edges[pk.ei];
+            const [from, to] = pk.rev ? [nodes[e.b], nodes[e.a]] : [nodes[e.a], nodes[e.b]];
+
+            pk.t += pk.speed;
+            if (pk.t >= 1) {
+                packets.splice(i, 1);
+                if (Math.random() < 0.8) spawnPacket();
+                continue;
+            }
+
+            const x = from.x + (to.x - from.x) * pk.t;
+            const y = from.y + (to.y - from.y) * pk.t;
+
+            const g = ctx.createRadialGradient(x, y, 0, x, y, 12);
+            g.addColorStop(0, 'rgba(159,201,10,0.4)');
+            g.addColorStop(1, 'rgba(159,201,10,0)');
+            ctx.beginPath();
+            ctx.arc(x, y, 12, 0, Math.PI * 2);
+            ctx.fillStyle = g;
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(x, y, 2.8, 0, Math.PI * 2);
+            ctx.fillStyle = '#9FC90A';
+            ctx.fill();
+        }
+
+        if (packets.length < CFG.maxPackets && Math.random() < CFG.spawnProb) spawnPacket();
+
+        rafId = requestAnimationFrame(frame);
+    }
+
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) { cancelAnimationFrame(rafId); }
+        else { rafId = requestAnimationFrame(frame); }
+    });
+
+    let rTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(rTimer);
+        rTimer = setTimeout(resize, 150);
+    });
+
+    resize();
+    rafId = requestAnimationFrame(frame);
+}
+
+
+/* ── Typewriter — Hero Eyebrow ───────────────────────────── */
+function initTypewriter() {
+    const el     = document.getElementById('eyebrowText');
+    const cursor = document.querySelector('.eyebrow-cursor');
+    if (!el) return;
+
+    const text  = 'Field-Validated AI Compression Technology';
+    const speed = 38;
+
+    /* P7 — if reduced motion, show text immediately */
+    if (prefersReducedMotion) {
+        el.textContent = text;
+        if (cursor) cursor.style.display = 'none';
+        return;
+    }
+
+    let i = 0;
+    setTimeout(() => {
+        const timer = setInterval(() => {
+            el.textContent += text[i++];
+            if (i >= text.length) {
+                clearInterval(timer);
+                setTimeout(() => {
+                    if (cursor) cursor.style.opacity = '0';
+                }, 2000);
+            }
+        }, speed);
+    }, 600);
+}
+
+
+/* ── Scroll Observer — Reveal Animations ────────────────── */
+function initScrollObserver() {
+    /* P7 — if reduced motion, reveal everything immediately */
+    if (prefersReducedMotion) {
+        document.querySelectorAll('[data-animate]').forEach(el => {
+            el.classList.add('visible');
+        });
+        return;
+    }
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const statValue = entry.target.querySelector('.stat-value');
-                if (statValue && !statValue.classList.contains('animated')) {
-                    statValue.classList.add('animated');
-                    animateValue(statValue, statValue.textContent);
-                }
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.5 });
-    
-    statBoxes.forEach(box => observer.observe(box));
-}
-
-function animateValue(element, targetText) {
-    // Simple animation for numeric values
-    if (targetText.includes('Gb/s') || targetText.includes('×')) {
-        const numericValue = parseFloat(targetText);
-        if (!isNaN(numericValue)) {
-            let current = 0;
-            const increment = numericValue / 30;
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= numericValue) {
-                    element.textContent = targetText;
-                    clearInterval(timer);
-        } else {
-                    element.textContent = current.toFixed(2) + (targetText.includes('Gb/s') ? ' Gb/s' : '×');
-                }
-            }, 30);
-        }
-    }
-}
-
-// Initialize number animations
-animateNumbers();
-
-// Add parallax effect to hero section
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const hero = document.querySelector('.hero');
-    const particles = document.querySelector('.particles');
-    const videoGrid = document.querySelector('.video-grid');
-    
-    if (hero && particles) {
-        const rate = scrolled * 0.3;
-        particles.style.transform = `translateY(${rate}px)`;
-    }
-    
-    if (videoGrid) {
-        const rate = scrolled * 0.2;
-        videoGrid.style.transform = `translateY(${rate}px)`;
-    }
-});
-
-// Add intersection observer for section reveals
-const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('revealed');
-        }
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -32px 0px',
     });
-}, { threshold: 0.1 });
 
-document.querySelectorAll('section').forEach(section => {
-    section.classList.add('section-hidden');
-    sectionObserver.observe(section);
-});
-
-// Add CSS for section reveals
-style.textContent += `
-    .section-hidden {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-    
-    .section-hidden.revealed {
-        opacity: 1;
-        transform: translateY(0);
-    }
-`;
-
-// Button click effects
-document.querySelectorAll('.btn-primary, .btn-secondary').forEach(button => {
-        button.addEventListener('click', function(e) {
-        // Create ripple effect
-            const ripple = document.createElement('span');
-            const rect = this.getBoundingClientRect();
-            const size = Math.max(rect.width, rect.height);
-            const x = e.clientX - rect.left - size / 2;
-            const y = e.clientY - rect.top - size / 2;
-            
-            ripple.style.width = ripple.style.height = size + 'px';
-            ripple.style.left = x + 'px';
-            ripple.style.top = y + 'px';
-        ripple.style.position = 'absolute';
-        ripple.style.borderRadius = '50%';
-        ripple.style.background = 'rgba(255, 255, 255, 0.3)';
-        ripple.style.transform = 'scale(0)';
-        ripple.style.animation = 'ripple 0.6s ease-out';
-        ripple.style.pointerEvents = 'none';
-        
-        this.style.position = 'relative';
-        this.style.overflow = 'hidden';
-            this.appendChild(ripple);
-            
-        setTimeout(() => ripple.remove(), 600);
-    });
-});
-
-style.textContent += `
-    @keyframes ripple {
-        to {
-            transform: scale(4);
-            opacity: 0;
-        }
-    }
-`;
-
-// Performance optimization: throttle scroll events
-function throttle(func, limit) {
-    let inThrottle;
-    return function() {
-        const args = arguments;
-        const context = this;
-        if (!inThrottle) {
-            func.apply(context, args);
-            inThrottle = true;
-            setTimeout(() => inThrottle = false, limit);
-        }
-    }
+    document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
 }
 
-// Optimized scroll handler
-const optimizedScroll = throttle(() => {
-    // Scroll-based animations can go here
-}, 16);
 
-window.addEventListener('scroll', optimizedScroll);
+/* ── Counters — Metrics Bleed ────────────────────────────── */
+function initCounters() {
+    const els = document.querySelectorAll('.m-count[data-target]');
+    if (!els.length) return;
 
-// Add loading animation
-window.addEventListener('load', () => {
-    document.body.classList.add('loaded');
-});
-
-style.textContent += `
-    body {
-                opacity: 0;
-        transition: opacity 0.5s ease;
+    /* P7 — show final values immediately for reduced motion */
+    if (prefersReducedMotion) {
+        els.forEach(el => { el.textContent = el.dataset.target; });
+        return;
     }
-    
-    body.loaded {
-            opacity: 1;
-    }
-`;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                countUp(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.4 });
+
+    els.forEach(el => observer.observe(el));
+}
+
+function countUp(el) {
+    const target = parseInt(el.dataset.target, 10);
+    const dur    = 1200;
+    const start  = performance.now();
+
+    const tick = (now) => {
+        const progress = Math.min((now - start) / dur, 1);
+        /* ease-out-expo — P7 spring/physics principle */
+        const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+        el.textContent = Math.round(eased * target);
+        if (progress < 1) requestAnimationFrame(tick);
+    };
+
+    requestAnimationFrame(tick);
+}
+
+
+/* ── Smooth Scroll ───────────────────────────────────────── */
+function initSmoothScroll() {
+    const navH = parseInt(
+        getComputedStyle(document.documentElement).getPropertyValue('--nav-h') || '68',
+        10
+    );
+
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', (e) => {
+            const href = a.getAttribute('href');
+            if (!href || href === '#') return;
+            const target = document.querySelector(href);
+            if (!target) return;
+            e.preventDefault();
+            const top = target.getBoundingClientRect().top + window.scrollY - navH;
+            window.scrollTo({
+                top,
+                behavior: prefersReducedMotion ? 'auto' : 'smooth',
+            });
+            /* P1 — move focus to the target section after scroll */
+            setTimeout(() => {
+                if (target.hasAttribute('tabindex')) target.focus({ preventScroll: true });
+            }, prefersReducedMotion ? 0 : 650);
+        });
+    });
+}
+
+
+/* ── Parallax Ghost Numbers ──────────────────────────────── */
+function initParallaxGhostNums() {
+    const ghosts = document.querySelectorAll('.ghost-num');
+    if (!ghosts.length) return;
+
+    let ticking = false;
+
+    window.addEventListener('scroll', () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+            const scrollY = window.scrollY;
+            ghosts.forEach(el => {
+                const hdr  = el.closest('.section-hdr');
+                if (!hdr) return;
+                const rect  = hdr.getBoundingClientRect();
+                const mid   = rect.top + rect.height / 2;
+                const ratio = (window.innerHeight / 2 - mid) / window.innerHeight;
+                el.style.transform = `translateY(${ratio * 28}px)`;
+            });
+            ticking = false;
+        });
+    }, { passive: true });
+}
