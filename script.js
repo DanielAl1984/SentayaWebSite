@@ -276,28 +276,55 @@ function initTypewriter() {
     const cursor = document.querySelector('.eyebrow-cursor');
     if (!el) return;
 
-    const text  = 'Field-Validated AI Compression Technology';
-    const speed = 38;
+    /* Cycles through brand status lines — reflects current partnership state */
+    const lines = [
+        'Field-Validated AI Compression Technology',
+        'IAI Paid Pilot · Video, Data & Image',
+        'FDA-Validated · ASTRA Program Member',
+    ];
 
-    /* P7 — if reduced motion, show text immediately */
+    const typeSpeed   = 36;
+    const eraseSpeed  = 18;
+    const holdMs      = 2400;
+
+    /* P7 — if reduced motion, show first line immediately and stop */
     if (prefersReducedMotion) {
-        el.textContent = text;
+        el.textContent = lines[0];
         if (cursor) cursor.style.display = 'none';
         return;
     }
 
-    let i = 0;
-    setTimeout(() => {
-        const timer = setInterval(() => {
-            el.textContent += text[i++];
-            if (i >= text.length) {
-                clearInterval(timer);
-                setTimeout(() => {
-                    if (cursor) cursor.style.opacity = '0';
-                }, 2000);
-            }
-        }, speed);
-    }, 600);
+    let lineIdx = 0;
+
+    const typeLine = (txt, done) => {
+        let i = 0;
+        const t = setInterval(() => {
+            el.textContent += txt[i++];
+            if (i >= txt.length) { clearInterval(t); done(); }
+        }, typeSpeed);
+    };
+
+    const eraseLine = (done) => {
+        const t = setInterval(() => {
+            const cur = el.textContent;
+            el.textContent = cur.slice(0, -1);
+            if (!el.textContent.length) { clearInterval(t); done(); }
+        }, eraseSpeed);
+    };
+
+    const cycle = () => {
+        const txt = lines[lineIdx % lines.length];
+        typeLine(txt, () => {
+            setTimeout(() => {
+                eraseLine(() => {
+                    lineIdx++;
+                    cycle();
+                });
+            }, holdMs);
+        });
+    };
+
+    setTimeout(cycle, 600);
 }
 
 

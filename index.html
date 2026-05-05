@@ -26,8 +26,10 @@
         </a>
         <ul class="nav-menu" id="navMenu" role="list">
             <li role="listitem"><a href="#solution"    class="nav-link">Solution</a></li>
+            <li role="listitem"><a href="#demo"        class="nav-link">Demo</a></li>
             <li role="listitem"><a href="#use-cases"   class="nav-link">Applications</a></li>
             <li role="listitem"><a href="#validation"  class="nav-link">Validation</a></li>
+            <li role="listitem"><a href="#partners"    class="nav-link">Partners</a></li>
             <li role="listitem"><a href="#team"        class="nav-link">Team</a></li>
             <li role="listitem"><a href="#contact"     class="nav-link">Contact</a></li>
         </ul>
@@ -403,12 +405,59 @@
 </section>
 
 <!-- ══════════════════════════════════════════════════════════
-     03 — APPLICATIONS
+     03 — DEMO VIDEO
+══════════════════════════════════════════════════════════ -->
+<section id="demo" class="section demo-section" aria-labelledby="demo-title">
+    <div class="container">
+        <div class="section-hdr left">
+            <span class="ghost-num" aria-hidden="true">03</span>
+            <span class="section-tag">Live Demonstration</span>
+            <h2 id="demo-title">See Sentaya<br>In Action</h2>
+            <p class="section-intro">
+                Real-time AI compression on field hardware — same source feed,
+                4× smaller payload, sub-30 ms end-to-end latency.
+            </p>
+        </div>
+
+        <div class="demo-frame" data-animate>
+            <div class="demo-corner demo-corner-tl" aria-hidden="true"></div>
+            <div class="demo-corner demo-corner-tr" aria-hidden="true"></div>
+            <div class="demo-corner demo-corner-bl" aria-hidden="true"></div>
+            <div class="demo-corner demo-corner-br" aria-hidden="true"></div>
+            <div class="demo-scan" aria-hidden="true"></div>
+
+            <!-- Replace src/poster with the final demo asset.
+                 Keeps controls + native HTML5 player for accessibility. -->
+            <video class="demo-video"
+                   controls
+                   playsinline
+                   preload="metadata"
+                   poster="SrntayaBigLogo.png"
+                   aria-label="Sentaya AI codec demonstration video">
+                <source src="sentaya-demo.mp4" type="video/mp4">
+                <p>Your browser does not support embedded video.
+                   <a href="mailto:daniel@sentaya.ai?subject=Demo%20Video%20Request">Request a private demo &rarr;</a>
+                </p>
+            </video>
+
+            <div class="demo-caption">
+                <span class="demo-tag">
+                    <span class="demo-tag-dot" aria-hidden="true"></span>
+                    Recorded on FPGA reference hardware
+                </span>
+                <span class="demo-meta">4× compression · &lt;30&nbsp;ms · 125&nbsp;FPS</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     04 — APPLICATIONS
 ══════════════════════════════════════════════════════════ -->
 <section id="use-cases" class="section use-cases">
     <div class="container">
         <div class="section-hdr left">
-            <span class="ghost-num" aria-hidden="true">03</span>
+            <span class="ghost-num" aria-hidden="true">04</span>
             <span class="section-tag">Applications</span>
             <h2>Operational<br>Environments</h2>
             <p class="section-intro">Sentaya operates where standard codecs break down — edge platforms under vibration, RF-constrained links, and real-time AI pipelines.</p>
@@ -471,12 +520,12 @@
 </section>
 
 <!-- ══════════════════════════════════════════════════════════
-     04 — VALIDATION
+     05 — VALIDATION
 ══════════════════════════════════════════════════════════ -->
 <section id="validation" class="section validation">
     <div class="container">
         <div class="section-hdr left">
-            <span class="ghost-num" aria-hidden="true">04</span>
+            <span class="ghost-num" aria-hidden="true">05</span>
             <span class="section-tag">Validation</span>
             <h2>Field-Tested.<br>Independently<br>Verified.</h2>
             <p class="section-intro">Evaluated and validated by leading defense, aerospace, and regulatory organizations.</p>
@@ -489,11 +538,11 @@
                     <span class="val-brand-full">Israel Aerospace<br>Industries</span>
                 </div>
                 <div class="val-body">
-                    <h3>Defence Video Codec POC</h3>
-                    <p>Proof of Concept conducted with the MATAH Division of Israel Aerospace Industries (IAI) — one of the world's leading defense and aerospace prime contractors. Active engagement.</p>
+                    <h3>Paid Pilot — Video, Data &amp; Image</h3>
+                    <p>POC with the MATAH Division of Israel Aerospace Industries successfully completed. Sentaya is now in an active paid pilot covering defense-grade video, sensor data, and image compression workloads.</p>
                     <span class="val-badge">
                         <i class="fas fa-circle" aria-hidden="true"></i>
-                        Active POC
+                        Paid Pilot · Active
                     </span>
                 </div>
             </div>
@@ -608,51 +657,72 @@
 </section>
 
 <!-- ══════════════════════════════════════════════════════════
-     ROADMAP
+     PARTNERS
 ══════════════════════════════════════════════════════════ -->
-<section id="roadmap" class="section roadmap">
+<section id="partners" class="section partners-section" aria-labelledby="partners-title">
     <div class="container">
         <div class="section-hdr">
-            <span class="section-tag">Roadmap</span>
-            <h2>From Validated<br>to Deployed</h2>
+            <span class="section-tag">Our Partners</span>
+            <h2 id="partners-title">Trusted by Defense<br>and Aerospace Leaders</h2>
+            <p class="section-intro">
+                Sentaya is engaged in a paid pilot with Israel Aerospace Industries
+                and is a member of the ASTRA dual-use defense acceleration program
+                powered by Starburst Aerospace.
+            </p>
         </div>
-        <div class="roadmap-line" role="list" aria-label="Product roadmap milestones">
-            <div class="rm-item active" data-animate role="listitem">
-                <div class="rm-marker" aria-hidden="true">
-                    <div class="rm-dot active"></div>
-                    <div class="rm-line"></div>
+
+        <div class="partners-grid" role="list" aria-label="Strategic partners">
+            <article class="partner-card" data-animate role="listitem">
+                <div class="partner-corner-tl" aria-hidden="true"></div>
+                <div class="partner-corner-br" aria-hidden="true"></div>
+
+                <div class="partner-logo-wrap" aria-hidden="true">
+                    <span class="partner-text-logo">IAI</span>
                 </div>
-                <div class="rm-content">
-                    <span class="rm-year accent">2025 — Now</span>
-                    <h4>Defence Codec R&amp;D + IAI POC</h4>
-                    <p>Active Proof of Concept with Israel Aerospace Industries. Defence-grade codec in development. FDA-validated data codec operational.</p>
-                    <span class="rm-status">
-                        <span class="rm-pulse" aria-hidden="true"></span>
-                        In Progress
+
+                <div class="partner-body">
+                    <span class="partner-tag">Defense &amp; Aerospace Prime</span>
+                    <h3>Israel Aerospace Industries</h3>
+                    <p>
+                        Strategic engagement with the MATAH Division of IAI — one
+                        of the world's leading defense and aerospace prime contractors.
+                        POC successfully completed; now operating under a paid pilot for
+                        Video, Data, and Image compression.
+                    </p>
+                    <span class="partner-status" role="status">
+                        <span class="partner-pulse" aria-hidden="true"></span>
+                        Paid Pilot · Active
                     </span>
                 </div>
-            </div>
-            <div class="rm-item" data-animate role="listitem">
-                <div class="rm-marker" aria-hidden="true">
-                    <div class="rm-dot"></div>
-                    <div class="rm-line"></div>
+            </article>
+
+            <article class="partner-card" data-animate role="listitem">
+                <div class="partner-corner-tl" aria-hidden="true"></div>
+                <div class="partner-corner-br" aria-hidden="true"></div>
+
+                <div class="partner-logo-wrap">
+                    <img src="StarburstLogo.png"
+                         alt="Starburst Aerospace"
+                         class="partner-logo"
+                         width="220" height="64"
+                         loading="lazy"
+                         onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'partner-text-logo',textContent:'STARBURST'}));">
                 </div>
-                <div class="rm-content">
-                    <span class="rm-year">2026 – 2027</span>
-                    <h4>Defence Market Entry + Consumer Codec</h4>
-                    <p>Commercial launch in the defence sector. Consumer codec development and patent filings underway.</p>
+
+                <div class="partner-body">
+                    <span class="partner-tag">Acceleration Program</span>
+                    <h3>Starburst Aerospace · ASTRA</h3>
+                    <p>
+                        Selected for the ASTRA acceleration program powered by
+                        Starburst Aerospace and IAI — a highly competitive cohort
+                        for breakthrough dual-use defense technology companies.
+                    </p>
+                    <span class="partner-status" role="status">
+                        <span class="partner-pulse" aria-hidden="true"></span>
+                        Program Member
+                    </span>
                 </div>
-            </div>
-            <div class="rm-item" data-animate role="listitem">
-                <div class="rm-marker" aria-hidden="true">
-                    <div class="rm-dot"></div>
-                </div>
-                <div class="rm-content">
-                    <span class="rm-year">2028 – 2030</span>
-                    <h4>MPEG Standardization + Consumer Launch</h4>
-                    <p>Industry standardization submission. Full consumer market deployment across OTT, 8K, and XR platforms.</p>
-                </div>
-            </div>
+            </article>
         </div>
     </div>
 </section>

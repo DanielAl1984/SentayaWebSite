@@ -4,7 +4,8 @@
       "Bash(Get-ChildItem -Path \"c:\\\\AlanaCodesFiles\\\\SentayaWebSite\" -Recurse -Force)",
       "Bash(Select-Object FullName, PSIsContainer)",
       "Bash(Format-Table -AutoSize)",
-      "WebFetch(domain:raw.githubusercontent.com)"
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:sentaya.ai)"
     ]
   }
 }
