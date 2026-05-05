@@ -21,12 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-/* ── Body reveal ─────────────────────────────────────────── */
-function initBodyReveal() {
-    const reveal = () => document.body.classList.add('loaded');
-    if (document.readyState === 'complete') { reveal(); }
-    else { window.addEventListener('load', reveal); }
-}
+/* ── Body reveal — handled by CSS animation, no JS needed ── */
+function initBodyReveal() {}
 
 
 /* ── Navbar ──────────────────────────────────────────────── */
